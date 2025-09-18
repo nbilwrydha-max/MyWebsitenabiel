@@ -26,7 +26,7 @@ footer{text-align:center;margin-top:40px;font-size:0.9em;color:#888;}
 .light-theme nav a:hover{background-color:#00ffff;color:#000;}
 .light-theme #theme-toggle{background-color:#00ffff;color:#000;}
 .light-theme .popup{background-color:#ddd;color:#000;box-shadow:0 0 15px #0000ff;}
-section{opacity:0;transform:translateY(20px);transition:opacity 0.8s, transform 0.8s;}
+section{opacity:0;transform:translateY(20px);transition:opacity 0.8s, transform 0.8s;margin-bottom:40px;}
 section.visible{opacity:1;transform:translateY(0);}
 button{transition:all 0.3s;}
 button:hover{transform:scale(1.1);}
@@ -37,6 +37,9 @@ button:hover{transform:scale(1.1);}
     p{font-size:1em;}
     nav a{padding:8px 15px;}
 }
+pre{background:#333;color:#0f0;padding:10px;border-radius:8px;overflow-x:auto;}
+textarea{width:100%;border-radius:8px;padding:10px;margin-top:10px;}
+#preview{border:1px solid #00ffff;padding:10px;margin-top:10px;min-height:50px;}
 </style>
 </head>
 <body>
@@ -46,93 +49,148 @@ button:hover{transform:scale(1.1);}
 <h1>Pemrograman Website Dasar</h1>
 
 <nav>
-<a href="#definisi">Definisi Website</a>
-<a href="#jenis">Jenis Website</a>
-<a href="#komponen">Komponen Utama</a>
+<a href="#definisi">Definisi</a>
+<a href="#jenis">Jenis</a>
+<a href="#komponen">Komponen</a>
 <a href="#cara">Cara Kerja</a>
-<a href="#fungsi">Fungsi Website</a>
-<a href="#tips">Tips Membuat Website</a>
+<a href="#fungsi">Fungsi</a>
+<a href="#tips">Tips</a>
+<a href="#contoh">Contoh Kode</a>
+<a href="#live">Live Demo</a>
 </nav>
 
-<!-- Definisi -->
+<!-- Pembahasan Website Dasar -->
 <section id="definisi">
 <h2>Definisi Website</h2>
 <p>Website adalah kumpulan halaman yang saling terhubung dan dapat diakses melalui internet menggunakan browser. Setiap website memiliki alamat unik yang disebut <strong>domain</strong>, dan file-file website disimpan di <strong>server</strong>. Website bisa berisi teks, gambar, video, atau aplikasi interaktif yang dapat digunakan oleh pengguna di seluruh dunia.</p>
-<p>Secara umum, website terbagi menjadi dua kategori: <strong>statis</strong> yang kontennya tetap, dan <strong>dinamis</strong> yang kontennya dapat berubah sesuai interaksi pengguna atau database.</p>
-<button onclick="showPopup('Tip: Pahami definisi website untuk membangun konsep yang kuat sebelum coding!')">Tampilkan Tip</button>
+<p>Website bisa bersifat statis atau dinamis, tergantung tujuan dan teknologinya.</p>
+<button onclick="showPopup('Tip: Pahami definisi website sebelum mulai membuat kode!')">Tampilkan Tip</button>
 </section>
 
-<!-- Jenis -->
 <section id="jenis">
 <h2>Jenis Website</h2>
-<p>Ada berbagai jenis website, tergantung fungsi dan kontennya. Beberapa jenis yang umum ditemui antara lain:</p>
+<p>Jenis website terbagi menjadi beberapa kategori:</p>
 <ul>
-<li><strong>Website Statis:</strong> Konten tetap dan jarang berubah, biasanya menggunakan HTML dan CSS sederhana.</li>
-<li><strong>Website Dinamis:</strong> Konten dapat berubah berdasarkan interaksi pengguna, memerlukan server dan database, misalnya menggunakan PHP, Python, atau Node.js.</li>
-<li><strong>Blog:</strong> Website yang fokus pada artikel atau postingan secara berkala.</li>
-<li><strong>E-commerce:</strong> Website untuk jual-beli produk atau jasa online.</li>
-<li><strong>Portal/Company Profile:</strong> Menyediakan informasi perusahaan atau organisasi secara online.</li>
-<li><strong>Aplikasi Web:</strong> Website yang fungsinya menyerupai aplikasi, misalnya Google Docs, Trello.</li>
+<li><strong>Statis:</strong> Konten tetap, biasanya menggunakan HTML & CSS sederhana.</li>
+<li><strong>Dinamis:</strong> Konten berubah sesuai interaksi pengguna, menggunakan server & database.</li>
+<li><strong>Blog:</strong> Fokus pada artikel atau postingan berkala.</li>
+<li><strong>E-commerce:</strong> Website untuk jual-beli online.</li>
+<li><strong>Portal / Company Profile:</strong> Informasi perusahaan atau organisasi.</li>
+<li><strong>Aplikasi Web:</strong> Website yang berfungsi seperti aplikasi.</li>
 </ul>
-<button onclick="showPopup('Tip: Mengetahui jenis website membantu memilih teknologi yang tepat!')">Tampilkan Tip</button>
+<button onclick="showPopup('Tip: Mengetahui jenis website membantu menentukan teknologi yang dipakai!')">Tampilkan Tip</button>
 </section>
 
-<!-- Komponen -->
 <section id="komponen">
 <h2>Komponen Utama Website</h2>
-<p>Website memiliki beberapa komponen utama yang bekerja bersama:</p>
+<p>Komponen utama website:</p>
 <ul>
-<li><strong>Frontend:</strong> Bagian yang dilihat pengguna, biasanya dibuat dengan HTML, CSS, dan JavaScript.</li>
-<li><strong>Backend:</strong> Server, database, dan logika bisnis yang memproses permintaan pengguna.</li>
-<li><strong>Domain:</strong> Alamat unik website seperti www.contoh.com.</li>
-<li><strong>Hosting:</strong> Tempat menyimpan semua file website agar dapat diakses di internet.</li>
+<li><strong>Frontend:</strong> Bagian yang dilihat pengguna (HTML, CSS, JS).</li>
+<li><strong>Backend:</strong> Server, database, logika bisnis.</li>
+<li><strong>Domain:</strong> Alamat unik website.</li>
+<li><strong>Hosting:</strong> Tempat menyimpan file website.</li>
 </ul>
-<button onclick="showPopup('Tip: Pahami komponen utama agar website bisa berjalan dengan baik!')">Tampilkan Tip</button>
+<button onclick="showPopup('Tip: Pahami komponen agar website berjalan lancar!')">Tampilkan Tip</button>
 </section>
 
-<!-- Cara Kerja -->
 <section id="cara">
 <h2>Cara Kerja Website</h2>
-<p>Ketika pengguna mengakses website dengan mengetik URL di browser, berikut proses yang terjadi:</p>
+<p>Proses akses website:</p>
 <ol>
-<li>Browser mengirim <strong>request</strong> ke server sesuai alamat domain.</li>
-<li>Server menerima request dan memproses permintaan, termasuk mengambil data dari database jika perlu.</li>
-<li>Server mengirim <strong>response</strong> kembali ke browser, biasanya berupa file HTML, CSS, JS.</li>
-<li>Browser menampilkan halaman website sesuai data yang diterima.</li>
+<li>Browser mengirim request ke server berdasarkan domain.</li>
+<li>Server memproses request dan mengambil data jika diperlukan.</li>
+<li>Server mengirim response (HTML/CSS/JS) ke browser.</li>
+<li>Browser menampilkan halaman website.</li>
 </ol>
-<p>Proses ini menggunakan protokol <strong>HTTP</strong> atau <strong>HTTPS</strong> untuk komunikasi antara browser dan server.</p>
-<button onclick="showPopup('Tip: Memahami alur kerja website penting untuk troubleshooting dan optimasi!')">Tampilkan Tip</button>
+<p>Proses ini menggunakan protokol HTTP/HTTPS.</p>
+<button onclick="showPopup('Tip: Memahami alur kerja membantu troubleshooting!')">Tampilkan Tip</button>
 </section>
 
-<!-- Fungsi Website -->
 <section id="fungsi">
 <h2>Fungsi Website</h2>
-<p>Website memiliki berbagai fungsi, di antaranya:</p>
 <ul>
 <li>Menyediakan informasi atau berita.</li>
-<li>Media komunikasi, seperti forum atau social media.</li>
-<li>Transaksi online, misalnya e-commerce dan layanan perbankan.</li>
-<li>Hiburan, seperti streaming musik dan video.</li>
+<li>Media komunikasi (forum, social media).</li>
+<li>Transaksi online (e-commerce, perbankan).</li>
+<li>Hiburan (streaming video/musik).</li>
 <li>Edukasi dan pembelajaran online.</li>
 </ul>
-<button onclick="showPopup('Tip: Mengetahui fungsi website membantu merancang fitur yang sesuai!')">Tampilkan Tip</button>
+<button onclick="showPopup('Tip: Mengetahui fungsi membantu menentukan fitur website!')">Tampilkan Tip</button>
 </section>
 
-<!-- Tips -->
 <section id="tips">
 <h2>Tips Membuat Website</h2>
-<p>Beberapa tips dasar agar website dapat berjalan dengan baik dan mudah digunakan:</p>
 <ul>
-<li>Rencanakan tujuan dan target pengguna website sebelum membuat desain.</li>
-<li>Buat desain sederhana dan responsif agar bisa diakses dari perangkat apapun.</li>
-<li>Pilih teknologi yang sesuai dengan jenis website, misalnya HTML/CSS untuk statis, atau PHP/Node.js untuk dinamis.</li>
-<li>Optimalkan kecepatan dan keamanan website.</li>
-<li>Selalu uji dan perbaiki secara berkala berdasarkan feedback pengguna.</li>
+<li>Rencanakan tujuan dan target pengguna.</li>
+<li>Buat desain sederhana & responsif.</li>
+<li>Pilih teknologi sesuai jenis website.</li>
+<li>Optimalkan kecepatan & keamanan.</li>
+<li>Uji dan perbaiki berdasarkan feedback.</li>
 </ul>
-<button onclick="showPopup('Tip: Mulai dengan perencanaan matang agar pembuatan website lebih mudah!')">Tampilkan Tip</button>
+<button onclick="showPopup('Tip: Perencanaan matang memudahkan pembuatan website!')">Tampilkan Tip</button>
 </section>
 
-<footer>Karya Count & Cj | 2025</footer>
+<!-- Contoh Codingan & Penjelasan -->
+<section id="contoh">
+<h2>Contoh Codingan & Penjelasan</h2>
+
+<h3>HTML (HyperText Markup Language)</h3>
+<p>HTML adalah bahasa markup untuk membuat struktur halaman web.</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Contoh HTML&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Halo Dunia&lt;/h1&gt;
+  &lt;p&gt;Ini paragraf pertama&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h3>CSS (Cascading Style Sheets)</h3>
+<p>CSS digunakan untuk mengatur tampilan halaman web.</p>
+<pre><code>body {
+  background-color: #f0f0f0;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #00f;
+  text-align: center;
+}</code></pre>
+
+<h3>JavaScript (JS)</h3>
+<p>JavaScript membuat website interaktif.</p>
+<pre><code>document.getElementById('btn').addEventListener('click', function(){
+  alert('Halo, selamat datang!');
+});</code></pre>
+
+<h3>Ringkasan Kepanjangan & Arti</h3>
+<ul>
+<li><strong>HTML:</strong> HyperText Markup Language → struktur halaman web.</li>
+<li><strong>CSS:</strong> Cascading Style Sheets → mengatur tampilan halaman web.</li>
+<li><strong>JS:</strong> JavaScript → membuat halaman web interaktif.</li>
+</ul>
+
+<button onclick="showPopup('Tip: Praktikkan kode ini di browser agar lebih paham!')">Tampilkan Tip</button>
+</section>
+
+<!-- Live Demo Kode -->
+<section id="live">
+<h2>Live Demo Kode</h2>
+<p>Kamu bisa menulis atau mengubah kode HTML, CSS, JS di textarea, lalu klik tombol "Jalankan" untuk melihat hasil langsung.</p>
+
+<textarea id="kode" rows="6">
+<h2>Halo Dunia!</h2>
+<p>Ini teks percobaan.</p>
+<button onclick="alert('Hai!')">Klik aku</button>
+</textarea>
+<br>
+<button onclick="jalankanKode()">Jalankan</button>
+
+<div id="preview"></div>
+</section>
 
 <!-- Pop-up khusus -->
 <section id="custom-popup" style="text-align:center;margin-top:40px;">
@@ -144,7 +202,6 @@ button:hover{transform:scale(1.1);}
   <button onclick="closeCustomPopup()">Tutup</button>
 </div>
 
-<!-- Script -->
 <script>
 // Toggle tema
 const toggleButton=document.getElementById('theme-toggle');
@@ -181,7 +238,15 @@ if(entry.isIntersecting){entry.target.classList.add('visible');}
 });
 },{threshold:0.2});
 sections.forEach(section=>observer.observe(section));
+
+// Live demo
+function jalankanKode(){
+  const kode = document.getElementById('kode').value;
+  document.getElementById('preview').innerHTML = kode;
+}
 </script>
+
+<footer>Karya Count & Cj | 2025</footer>
 
 </body>
     </html>
