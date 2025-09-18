@@ -51,7 +51,6 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      transition: all 0.3s ease;
     }
 
     body.light-mode nav {
@@ -62,25 +61,30 @@
       list-style: none;
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.2rem;
+      flex-wrap: wrap;
     }
 
-    nav ul li a {
+    nav ul li a, nav ul li button {
       color: #fff;
       text-decoration: none;
       font-weight: 600;
       transition: 0.3s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
     }
 
-    body.light-mode nav ul li a {
+    body.light-mode nav ul li a, body.light-mode nav ul li button {
       color: #222;
     }
 
-    nav ul li a:hover {
+    nav ul li a:hover, nav ul li button:hover {
       color: var(--accent-dark);
     }
 
-    body.light-mode nav ul li a:hover {
+    body.light-mode nav ul li a:hover, body.light-mode nav ul li button:hover {
       color: var(--accent-light);
     }
 
@@ -97,12 +101,25 @@
     }
 
     header h1 {
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       margin-bottom: 1rem;
     }
 
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    header img {
+      margin-top: 2rem;
+      max-width: 230px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    /* Section umum */
     section {
-      padding: 3rem 2rem;
+      padding: 3rem 1.5rem;
       max-width: 900px;
       margin: auto;
       opacity: 0;
@@ -115,9 +132,18 @@
       transform: translateY(0);
     }
 
+    section img {
+      max-width: 100%;
+      height: auto;
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
     h2 {
       margin-bottom: 1rem;
       color: var(--accent-dark);
+      text-align: center;
     }
 
     body.light-mode h2 {
@@ -128,6 +154,17 @@
       margin-bottom: 1.5rem;
       font-size: 1.05rem;
       text-align: justify;
+    }
+
+    /* Kata Pengantar */
+    #pengantar {
+      background: rgba(0,0,0,0.4);
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    body.light-mode #pengantar {
+      background: rgba(200,200,200,0.2);
     }
 
     /* Tombol */
@@ -164,6 +201,19 @@
       text-align: center;
     }
 
+    /* Responsif */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      nav ul {
+        gap: 0.8rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+
     /* Animasi */
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -176,11 +226,12 @@
   <nav>
     <ul>
       <li><a href="#home">Home</a></li>
+      <li><a href="#pengantar">Pengantar</a></li>
       <li><a href="#tentang">Tentang</a></li>
       <li><a href="#langkah">Langkah</a></li>
       <li><a href="#manfaat">Manfaat</a></li>
       <li><a href="#kontak">Kontak</a></li>
-      <li><button class="btn" onclick="toggleTheme()">Ubah Tema</button></li>
+      <li><button onclick="toggleTheme()">Ubah Tema</button></li>
     </ul>
   </nav>
 
@@ -188,13 +239,30 @@
   <header id="home">
     <h1>Pemrograman Website Dasar</h1>
     <p>Mempelajari fondasi awal membuat website interaktif & modern</p>
+    <img src="https://source.unsplash.com/400x250/?coding,computer" alt="Coding Illustration">
   </header>
+
+  <!-- Kata Pengantar -->
+  <section id="pengantar">
+    <h2>Kata Pengantar</h2>
+    <p>
+      Selamat datang di materi <b>Pemrograman Website Dasar</b>.  
+      Website adalah jendela dunia digital yang kini sudah menjadi bagian penting dari kehidupan sehari-hari.  
+      Lewat pembelajaran ini, kita akan memahami konsep dasar yang dapat membuka jalan untuk membuat situs sederhana, 
+      namun bermanfaat dan interaktif.  
+    </p>
+    <p>
+      Harapan saya, materi ini bisa menjadi fondasi kuat bagi siapa saja yang ingin menapaki dunia pemrograman web. 
+      Semoga dengan memahami dasar-dasarnya, kamu bisa mengembangkan kreativitas dan ide-ide besar di masa depan.
+    </p>
+  </section>
 
   <!-- Section Tentang -->
   <section id="tentang">
     <h2>Apa itu Website?</h2>
     <p>Website adalah kumpulan halaman yang saling terhubung dan dapat diakses melalui internet menggunakan browser. 
        Website biasanya ditulis dengan <b>HTML</b> untuk struktur, <b>CSS</b> untuk tampilan, dan <b>JavaScript</b> untuk interaktivitas.</p>
+    <img src="https://source.unsplash.com/800x400/?website,design" alt="Website Design">
     <p>Contoh jenis website: blog, toko online, portofolio, media sosial, hingga aplikasi berbasis web.</p>
   </section>
 
@@ -206,6 +274,7 @@
        3. Gunakan JavaScript untuk menambah interaksi dinamis.<br>
        4. Simpan file di hosting gratis seperti <b>GitHub Pages</b>.<br>
        5. Bagikan link websitemu agar bisa diakses orang lain.</p>
+    <img src="https://source.unsplash.com/800x400/?html,css" alt="HTML & CSS">
   </section>
 
   <!-- Section Manfaat -->
@@ -216,12 +285,14 @@
        ✔ Memahami dasar teknologi internet.<br>
        ✔ Bisa dipakai untuk bisnis online.<br>
        ✔ Membantu membangun komunitas & project digital.</p>
+    <img src="https://source.unsplash.com/800x400/?technology,developer" alt="Web Developer">
   </section>
 
   <!-- Section Kontak -->
   <section id="kontak">
     <h2>Hubungi Saya</h2>
     <p>Email: <a href="mailto:email@contoh.com" style="color: var(--accent-dark);">email@contoh.com</a></p>
+    <img src="https://source.unsplash.com/400x250/?email,contact" alt="Contact Illustration">
   </section>
 
   <!-- Footer -->
@@ -256,4 +327,5 @@
     });
   </script>
 </body>
-</html>
+            </html>
+      
