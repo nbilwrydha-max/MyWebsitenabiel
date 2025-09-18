@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Ksatria Pixel</title>
+    <title>Pemrograman Website Dasar</title>
     <style>
         /* Reset dasar */
         * {
@@ -14,10 +14,11 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
+            background-color: #1e1e1e; /* dark default */
             color: #f0f0f0;
             line-height: 1.6;
             padding: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         h1, h2 {
@@ -28,6 +29,7 @@
         h1 {
             font-size: 2em;
             text-shadow: 0 0 10px #00ffff;
+            transition: text-shadow 0.3s ease;
         }
 
         h2 {
@@ -35,10 +37,11 @@
             margin-top: 30px;
             margin-bottom: 15px;
             text-shadow: 0 0 5px #ff00ff;
+            transition: text-shadow 0.3s ease;
         }
 
         p {
-            font-size: 0.9em; /* font lebih kecil */
+            font-size: 0.9em;
             margin-bottom: 15px;
             text-align: justify;
         }
@@ -46,9 +49,9 @@
         .highlight {
             color: #00ffff;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
 
-        /* Animasi glow */
         @keyframes glow {
             0% { text-shadow: 0 0 5px #00ffff; }
             50% { text-shadow: 0 0 20px #00ffff; }
@@ -59,7 +62,49 @@
             animation: glow 2s infinite;
         }
 
-        /* Footer */
+        /* Tombol navigasi */
+        nav {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 5px 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #00ffff;
+            color: #000;
+            box-shadow: 0 0 10px #00ffff;
+            transform: scale(1.1);
+        }
+
+        /* Tombol toggle tema */
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #00ffff;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #theme-toggle:hover {
+            box-shadow: 0 0 10px #00ffff;
+            transform: scale(1.1);
+        }
+
         footer {
             text-align: center;
             margin-top: 40px;
@@ -69,44 +114,71 @@
 
         /* Responsif untuk HP */
         @media (max-width: 600px) {
-            h1 {
-                font-size: 1.5em;
-            }
-            h2 {
-                font-size: 1.2em;
-            }
-            p {
-                font-size: 0.85em;
-            }
+            h1 { font-size: 1.5em; }
+            h2 { font-size: 1.2em; }
+            p { font-size: 0.85em; }
+            nav a { padding: 8px 15px; }
         }
+
+        /* Light theme class */
+        .light-theme {
+            background-color: #ffffff;
+            color: #1e1e1e;
+        }
+
+        .light-theme h1 { text-shadow: 0 0 10px #0000ff; }
+        .light-theme h2 { text-shadow: 0 0 5px #ff00ff; }
+        .light-theme .highlight { color: #0000ff; }
+        .light-theme nav a { background-color: #ddd; color: #000; }
+        .light-theme nav a:hover { background-color: #00ffff; color: #000; box-shadow: 0 0 10px #00ffff; }
+        .light-theme #theme-toggle { background-color: #00ffff; color: #000; }
     </style>
 </head>
 <body>
 
-    <h1 class="glow">Selamat Datang di Dunia Ksatria Pixel</h1>
+    <button id="theme-toggle">Light Mode</button>
 
-    <p>Website ini dibuat sebagai <span class="highlight">panduan lengkap</span> tentang karakter ksatria berbentuk pixel, cara membuat animasi sederhana, hingga meluncurkan website sendiri tanpa harus membayar hosting mahal.  
-    Di sini kamu akan menemukan pembahasan panjang layaknya majalah atau ebook, sehingga mudah dipahami bahkan untuk pemula.</p>
+    <h1 class="glow">Pemrograman Website Dasar</h1>
 
-    <h2>Pembahasan Lengkap</h2>
-    <p>Animasi karakter pixel adalah salah satu cara terbaik untuk memahami dasar pemrograman grafis di web. Kamu bisa mulai dengan gambar sederhana (spritesheet) dan mengatur frame animasi menggunakan CSS atau JavaScript.  
-    Pembahasan ini mencakup berbagai topik seperti idle animation, attack, jump, dan efek visual lain yang membuat karakter terlihat hidup.</p>
+    <nav>
+        <a href="#pengenalan">Pengenalan</a>
+        <a href="#html">HTML</a>
+        <a href="#css">CSS</a>
+        <a href="#javascript">JavaScript</a>
+    </nav>
 
-    <p>Selain itu, desain website ini disesuaikan agar nyaman dibuka di layar HP. Font dibuat sedikit lebih kecil agar teks lebih mudah dibaca dan layout responsif mengikuti ukuran layar.  
-    Animasi glow pada judul memberikan sentuhan visual menarik tanpa membebani performa.</p>
+    <h2 id="pengenalan">Pengenalan</h2>
+    <p>Pemrograman website dasar adalah fondasi untuk membuat halaman web yang dapat diakses melalui browser.  
+    Dengan memahami dasar HTML, CSS, dan JavaScript, kamu dapat membuat website interaktif, menarik, dan responsif untuk semua perangkat, termasuk HP dan tablet.</p>
 
-    <h2>Cara Meluncurkan Website ke Google</h2>
-    <p>Setelah membuat website, langkah selanjutnya adalah meluncurkannya agar bisa diakses melalui Google. Caranya bisa melalui <span class="highlight">GitHub Pages</span>, yaitu layanan gratis dari GitHub untuk hosting halaman statis.  
-    Cukup upload file HTML, CSS, dan gambar ke repository, lalu aktifkan GitHub Pages di menu pengaturan repository. Dalam beberapa menit, website sudah online dan bisa diakses melalui link khusus yang diberikan GitHub.</p>
+    <h2 id="html">HTML (HyperText Markup Language)</h2>
+    <p>HTML adalah bahasa markup untuk membuat struktur halaman web.  
+    Elemen dasar HTML termasuk <span class="highlight">&lt;h1&gt;</span> sampai <span class="highlight">&lt;h6&gt;</span> untuk judul, <span class="highlight">&lt;p&gt;</span> untuk paragraf, <span class="highlight">&lt;a&gt;</span> untuk tautan, dan <span class="highlight">&lt;img&gt;</span> untuk gambar.</p>
 
-    <h2>Tips dan Trik</h2>
-    <p>- Gunakan <span class="highlight">spritesheet</span> untuk animasi agar lebih efisien.  
-    - Selalu cek tampilan di HP sebelum publikasi.  
-    - Tambahkan elemen visual menarik seperti glow, shadow, dan warna kontras untuk memperkuat desain.</p>
+    <h2 id="css">CSS (Cascading Style Sheets)</h2>
+    <p>CSS digunakan untuk mengatur tampilan website. Dengan CSS, kamu dapat menentukan warna, ukuran font, layout, animasi, dan efek visual lainnya.  
+    Misalnya, kamu bisa menambahkan efek <span class="highlight">hover</span> pada tombol agar berubah warna ketika disentuh atau diklik.</p>
+
+    <h2 id="javascript">JavaScript</h2>
+    <p>JavaScript memungkinkan website menjadi interaktif. Dengan JavaScript, kamu bisa menambahkan logika, menangani klik tombol, validasi form, animasi, dan banyak lagi.  
+    JavaScript bekerja bersama HTML dan CSS untuk menciptakan pengalaman pengguna yang dinamis.</p>
 
     <footer>
         Karya bersama Count & Cj | 2025
     </footer>
 
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            if(document.body.classList.contains('light-theme')){
+                toggleButton.textContent = 'Dark Mode';
+            } else {
+                toggleButton.textContent = 'Light Mode';
+            }
+        });
+    </script>
+
 </body>
-</html>
+    </html>
+    
