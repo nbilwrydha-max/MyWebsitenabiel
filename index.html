@@ -4,24 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pemrograman Website Dasar</title>
+
+  <!-- Font Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
-    /* Reset style */
+    :root {
+      /* Tema terang */
+      --bg-light: #f9f9f9;
+      --text-light: #222;
+      --accent-light: #0077ff;
+
+      /* Tema gelap */
+      --bg-dark: #111;
+      --text-dark: #f5f5f5;
+      --accent-dark: #00ffcc;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     html {
-      scroll-behavior: smooth; /* Efek scroll halus */
+      scroll-behavior: smooth;
     }
 
     body {
-      background: #111;
-      color: #fff;
-      line-height: 1.6;
-      text-align: center;
+      background: var(--bg-dark);
+      color: var(--text-dark);
+      line-height: 1.8;
+      transition: all 0.5s ease;
+    }
+
+    body.light-mode {
+      background: var(--bg-light);
+      color: var(--text-light);
     }
 
     /* Navigasi */
@@ -31,6 +51,11 @@
       position: sticky;
       top: 0;
       z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    body.light-mode nav {
+      background: #fff;
     }
 
     nav ul {
@@ -40,48 +65,69 @@
       gap: 2rem;
     }
 
-    nav ul li {
-      display: inline;
-    }
-
     nav ul li a {
       color: #fff;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       transition: 0.3s;
     }
 
+    body.light-mode nav ul li a {
+      color: #222;
+    }
+
     nav ul li a:hover {
-      color: #00ffcc;
+      color: var(--accent-dark);
+    }
+
+    body.light-mode nav ul li a:hover {
+      color: var(--accent-light);
     }
 
     /* Header */
     header {
-      padding: 2rem;
+      padding: 3rem 2rem;
+      text-align: center;
       background: #222;
       animation: fadeIn 2s ease-in-out;
     }
 
+    body.light-mode header {
+      background: #eaeaea;
+    }
+
     header h1 {
-      font-size: 2.5rem;
-      color: #f1f1f1;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
     }
 
     section {
       padding: 3rem 2rem;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
-      animation: slideUp 1.5s ease-in-out;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
       margin-bottom: 1rem;
-      color: #00ffcc;
+      color: var(--accent-dark);
+    }
+
+    body.light-mode h2 {
+      color: var(--accent-light);
     }
 
     p {
       margin-bottom: 1.5rem;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
+      text-align: justify;
     }
 
     /* Tombol */
@@ -90,31 +136,38 @@
       background: #fff;
       color: #111;
       padding: 10px 20px;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-weight: 600;
       text-decoration: none;
       transition: 0.3s;
       cursor: pointer;
     }
 
     .btn:hover {
-      background: #00ffcc;
+      background: var(--accent-dark);
       color: #111;
-      transform: scale(1.1);
+      transform: scale(1.05);
+    }
+
+    body.light-mode .btn {
+      background: #222;
+      color: #fff;
+    }
+
+    body.light-mode .btn:hover {
+      background: var(--accent-light);
+      color: #fff;
     }
 
     footer {
       margin: 3rem 0;
+      text-align: center;
     }
 
     /* Animasi */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
@@ -124,36 +177,51 @@
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#langkah">Langkah</a></li>
+      <li><a href="#manfaat">Manfaat</a></li>
       <li><a href="#kontak">Kontak</a></li>
+      <li><button class="btn" onclick="toggleTheme()">Ubah Tema</button></li>
     </ul>
   </nav>
 
   <!-- Header -->
   <header id="home">
     <h1>Pemrograman Website Dasar</h1>
-    <p>Mempelajari langkah pertama membuat website</p>
+    <p>Mempelajari fondasi awal membuat website interaktif & modern</p>
   </header>
 
   <!-- Section Tentang -->
   <section id="tentang">
     <h2>Apa itu Website?</h2>
-    <p>Website adalah kumpulan halaman yang bisa diakses melalui internet dengan menggunakan browser. 
-       Website biasanya ditulis dengan bahasa HTML, CSS, dan JavaScript.</p>
+    <p>Website adalah kumpulan halaman yang saling terhubung dan dapat diakses melalui internet menggunakan browser. 
+       Website biasanya ditulis dengan <b>HTML</b> untuk struktur, <b>CSS</b> untuk tampilan, dan <b>JavaScript</b> untuk interaktivitas.</p>
+    <p>Contoh jenis website: blog, toko online, portofolio, media sosial, hingga aplikasi berbasis web.</p>
+  </section>
 
+  <!-- Section Langkah -->
+  <section id="langkah">
     <h2>Langkah Membuat Website Dasar</h2>
-    <p>1. Buat file <code>index.html</code><br>
-       2. Tulis struktur dasar HTML<br>
-       3. Tambahkan CSS untuk mempercantik tampilan<br>
-       4. Gunakan JavaScript untuk interaksi dinamis<br>
-       5. Hostingkan website, misalnya di GitHub Pages</p>
+    <p>1. Buat file <code>index.html</code> sebagai halaman utama.<br>
+       2. Tambahkan CSS untuk mempercantik tampilan.<br>
+       3. Gunakan JavaScript untuk menambah interaksi dinamis.<br>
+       4. Simpan file di hosting gratis seperti <b>GitHub Pages</b>.<br>
+       5. Bagikan link websitemu agar bisa diakses orang lain.</p>
+  </section>
+
+  <!-- Section Manfaat -->
+  <section id="manfaat">
+    <h2>Manfaat Belajar Website</h2>
+    <p>✔ Bisa membuat blog atau portofolio online.<br>
+       ✔ Membuka peluang kerja sebagai web developer.<br>
+       ✔ Memahami dasar teknologi internet.<br>
+       ✔ Bisa dipakai untuk bisnis online.<br>
+       ✔ Membantu membangun komunitas & project digital.</p>
   </section>
 
   <!-- Section Kontak -->
   <section id="kontak">
-    <h2>Kenapa Harus Belajar Website?</h2>
-    <p>Dengan memahami pemrograman website dasar, kamu bisa membangun portofolio online, blog pribadi,
-       atau bahkan mengembangkan aplikasi berbasis web.</p>
-    <p>Hubungi saya di: <a href="mailto:email@contoh.com" style="color:#00ffcc;">email@contoh.com</a></p>
+    <h2>Hubungi Saya</h2>
+    <p>Email: <a href="mailto:email@contoh.com" style="color: var(--accent-dark);">email@contoh.com</a></p>
   </section>
 
   <!-- Footer -->
@@ -162,10 +230,30 @@
   </footer>
 
   <script>
+    // Toggle Tema
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+
+    // Pesan Pop-up
     function showMessage() {
       alert("Terima kasih sudah belajar pemrograman website dasar! 🚀");
     }
+
+    // Animasi Scroll
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
   </script>
 </body>
-  </html>
-  
+</html>
