@@ -1,183 +1,139 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pemrograman Website Dasar</title>
-    <style>
-        /* Reset dasar */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1e1e1e; /* dark default */
-            color: #f0f0f0;
-            line-height: 1.6;
-            padding: 20px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        h1, h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 2em;
-            text-shadow: 0 0 10px #00ffff;
-            transition: text-shadow 0.3s ease;
-        }
-
-        h2 {
-            font-size: 1.5em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            text-shadow: 0 0 5px #ff00ff;
-            transition: text-shadow 0.3s ease;
-        }
-
-        p {
-            font-size: 0.9em;
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .highlight {
-            color: #00ffff;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        @keyframes glow {
-            0% { text-shadow: 0 0 5px #00ffff; }
-            50% { text-shadow: 0 0 20px #00ffff; }
-            100% { text-shadow: 0 0 5px #00ffff; }
-        }
-
-        .glow {
-            animation: glow 2s infinite;
-        }
-
-        /* Tombol navigasi */
-        nav {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        nav a {
-            display: inline-block;
-            margin: 5px 10px;
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        nav a:hover {
-            background-color: #00ffff;
-            color: #000;
-            box-shadow: 0 0 10px #00ffff;
-            transform: scale(1.1);
-        }
-
-        /* Tombol toggle tema */
-        #theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 15px;
-            background-color: #00ffff;
-            color: #000;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        #theme-toggle:hover {
-            box-shadow: 0 0 10px #00ffff;
-            transform: scale(1.1);
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.8em;
-            color: #888;
-        }
-
-        /* Responsif untuk HP */
-        @media (max-width: 600px) {
-            h1 { font-size: 1.5em; }
-            h2 { font-size: 1.2em; }
-            p { font-size: 0.85em; }
-            nav a { padding: 8px 15px; }
-        }
-
-        /* Light theme class */
-        .light-theme {
-            background-color: #ffffff;
-            color: #1e1e1e;
-        }
-
-        .light-theme h1 { text-shadow: 0 0 10px #0000ff; }
-        .light-theme h2 { text-shadow: 0 0 5px #ff00ff; }
-        .light-theme .highlight { color: #0000ff; }
-        .light-theme nav a { background-color: #ddd; color: #000; }
-        .light-theme nav a:hover { background-color: #00ffff; color: #000; box-shadow: 0 0 10px #00ffff; }
-        .light-theme #theme-toggle { background-color: #00ffff; color: #000; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pemrograman Website Dasar - Ebook</title>
+<style>
+* {margin:0;padding:0;box-sizing:border-box;}
+body {font-family: Arial, sans-serif; background-color:#1e1e1e; color:#f0f0f0; line-height:1.6; padding:20px; transition: background-color 0.3s ease, color 0.3s ease;}
+h1,h2{text-align:center;margin-bottom:20px;}
+h1{font-size:2em; text-shadow:0 0 10px #00ffff;}
+h2{font-size:1.5em;margin-top:30px;margin-bottom:15px;text-shadow:0 0 5px #ff00ff;}
+p{font-size:0.95em;margin-bottom:15px;text-align:justify;}
+code{background:#333;color:#0f0;padding:2px 4px;border-radius:4px;}
+.highlight{color:#00ffff;font-weight:bold;}
+@keyframes glow{0%{text-shadow:0 0 5px #00ffff;}50%{text-shadow:0 0 20px #00ffff;}100%{text-shadow:0 0 5px #00ffff;}}
+.glow{animation:glow 2s infinite;}
+nav{text-align:center;margin-bottom:30px;}
+nav a{display:inline-block;margin:5px 10px;padding:10px 20px;background-color:#333;color:#fff;text-decoration:none;border-radius:10px;transition:all 0.3s ease;}
+nav a:hover{background-color:#00ffff;color:#000;box-shadow:0 0 10px #00ffff;transform:scale(1.1);}
+#theme-toggle{position:fixed;top:20px;right:20px;padding:10px 15px;background-color:#00ffff;color:#000;border:none;border-radius:8px;cursor:pointer;transition:all 0.3s ease;}
+#theme-toggle:hover{box-shadow:0 0 10px #00ffff; transform:scale(1.1);}
+footer{text-align:center;margin-top:40px;font-size:0.8em;color:#888;}
+.popup{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background-color:#333;color:#fff;padding:20px;border-radius:12px;box-shadow:0 0 15px #00ffff;z-index:1000;max-width:80%;text-align:center;}
+.popup button{margin-top:15px;padding:8px 12px;border:none;border-radius:6px;cursor:pointer;background-color:#00ffff;color:#000;}
+.light-theme{background-color:#ffffff;color:#1e1e1e;}
+.light-theme h1{text-shadow:0 0 10px #0000ff;}
+.light-theme h2{text-shadow:0 0 5px #ff00ff;}
+.light-theme .highlight{color:#0000ff;}
+.light-theme nav a{background-color:#ddd;color:#000;}
+.light-theme nav a:hover{background-color:#00ffff;color:#000;box-shadow:0 0 10px #00ffff;}
+.light-theme #theme-toggle{background-color:#00ffff;color:#000;}
+.light-theme .popup{background-color:#ddd;color:#000;box-shadow:0 0 15px #0000ff;}
+@media(max-width:600px){h1{font-size:1.5em;}h2{font-size:1.2em;}p{font-size:0.85em;}nav a{padding:8px 15px;}}
+</style>
 </head>
 <body>
 
-    <button id="theme-toggle">Light Mode</button>
+<button id="theme-toggle">Light Mode</button>
 
-    <h1 class="glow">Pemrograman Website Dasar</h1>
+<h1 class="glow">Pemrograman Website Dasar - Panduan Lengkap</h1>
 
-    <nav>
-        <a href="#pengenalan">Pengenalan</a>
-        <a href="#html">HTML</a>
-        <a href="#css">CSS</a>
-        <a href="#javascript">JavaScript</a>
-    </nav>
+<nav>
+    <a href="#pengantar">Kata Pengantar</a>
+    <a href="#html">HTML</a>
+    <a href="#css">CSS</a>
+    <a href="#javascript">JavaScript</a>
+</nav>
 
-    <h2 id="pengenalan">Pengenalan</h2>
-    <p>Pemrograman website dasar adalah fondasi untuk membuat halaman web yang dapat diakses melalui browser.  
-    Dengan memahami dasar HTML, CSS, dan JavaScript, kamu dapat membuat website interaktif, menarik, dan responsif untuk semua perangkat, termasuk HP dan tablet.</p>
+<!-- Kata Pengantar -->
+<section id="pengantar">
+<h2>Kata Pengantar</h2>
+<p>Selamat datang di panduan <strong>Pemrograman Website Dasar</strong>. Buku ini dibuat khusus bagi pemula yang ingin memahami cara membuat website dari awal.  
+Kamu akan belajar mulai dari struktur halaman, penataan visual, hingga membuat interaksi menggunakan JavaScript.</p>
+<p>Setiap section dirancang panjang dan detail agar seperti ebook atau majalah digital. Kamu bisa membaca di HP maupun PC, dan semua contoh bisa langsung dicoba sendiri.</p>
+<p>Gunakan tombol navigasi di atas untuk berpindah antar section, dan tombol <strong>Light / Dark Mode</strong> untuk menyesuaikan tampilan mata. Di setiap section ada tombol pop-up untuk tips tambahan agar belajar lebih efektif.</p>
+<button onclick="showPopup('Tip: Bacalah setiap paragraf dan praktikkan contoh kode agar pemahaman lebih dalam!')">Tampilkan Tip</button>
+</section>
 
-    <h2 id="html">HTML (HyperText Markup Language)</h2>
-    <p>HTML adalah bahasa markup untuk membuat struktur halaman web.  
-    Elemen dasar HTML termasuk <span class="highlight">&lt;h1&gt;</span> sampai <span class="highlight">&lt;h6&gt;</span> untuk judul, <span class="highlight">&lt;p&gt;</span> untuk paragraf, <span class="highlight">&lt;a&gt;</span> untuk tautan, dan <span class="highlight">&lt;img&gt;</span> untuk gambar.</p>
+<!-- HTML Section -->
+<section id="html">
+<h2>Pembahasan HTML</h2>
+<p>HTML (HyperText Markup Language) adalah bahasa markup yang digunakan untuk membangun struktur website.  
+Dengan HTML, kamu bisa membuat judul, paragraf, tautan, gambar, tabel, daftar, dan banyak elemen lain yang membentuk halaman web.</p>
+<p>Contoh dasar HTML:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Contoh HTML&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Halo Dunia&lt;/h1&gt;
+  &lt;p&gt;Ini paragraf pertama&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Tips penting: selalu menutup tag HTML dengan benar dan menulis DOCTYPE di awal agar browser menampilkan halaman dengan baik.</p>
+<button onclick="showPopup('Tip HTML: Gunakan komentar &lt;!-- komentar --&gt; untuk memberi catatan pada kode!')">Tampilkan Tip</button>
+</section>
 
-    <h2 id="css">CSS (Cascading Style Sheets)</h2>
-    <p>CSS digunakan untuk mengatur tampilan website. Dengan CSS, kamu dapat menentukan warna, ukuran font, layout, animasi, dan efek visual lainnya.  
-    Misalnya, kamu bisa menambahkan efek <span class="highlight">hover</span> pada tombol agar berubah warna ketika disentuh atau diklik.</p>
+<!-- CSS Section -->
+<section id="css">
+<h2>Pembahasan CSS</h2>
+<p>CSS (Cascading Style Sheets) digunakan untuk mempercantik tampilan website. Kamu dapat mengatur warna, font, layout, jarak antar elemen, dan membuat animasi sederhana.</p>
+<p>Contoh CSS dasar:</p>
+<pre><code>body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+h1 {
+  color: #00f;
+  text-align: center;
+}
+</code></pre>
+<p>Tips: Gunakan class dan ID untuk mengatur style elemen tertentu, dan manfaatkan Flexbox atau Grid untuk membuat layout responsif.</p>
+<button onclick="showPopup('Tip CSS: Selalu gunakan warna kontras agar teks terbaca jelas!')">Tampilkan Tip</button>
+</section>
 
-    <h2 id="javascript">JavaScript</h2>
-    <p>JavaScript memungkinkan website menjadi interaktif. Dengan JavaScript, kamu bisa menambahkan logika, menangani klik tombol, validasi form, animasi, dan banyak lagi.  
-    JavaScript bekerja bersama HTML dan CSS untuk menciptakan pengalaman pengguna yang dinamis.</p>
+<!-- JavaScript Section -->
+<section id="javascript">
+<h2>Pembahasan JavaScript</h2>
+<p>JavaScript membuat website menjadi interaktif. Kamu dapat menangani klik tombol, validasi form, mengubah konten secara dinamis, dan membuat animasi.</p>
+<p>Contoh JavaScript sederhana:</p>
+<pre><code>&lt;button onclick="alert('Halo!')"&gt;Klik Aku&lt;/button&gt;
+</code></pre>
+<p>Tips: Mulailah dengan memahami DOM (Document Object Model), event, dan fungsi sebelum mempelajari framework seperti React atau Vue.</p>
+<button onclick="showPopup('Tip JS: Cobalah memodifikasi DOM untuk melihat perubahan langsung di halaman!')">Tampilkan Tip</button>
+</section>
 
-    <footer>
-        Karya bersama Count & Cj | 2025
-    </footer>
+<!-- Pop-up -->
+<div id="popup" class="popup">
+<p></p>
+<button onclick="closePopup()">Tutup</button>
+</div>
 
-    <script>
-        const toggleButton = document.getElementById('theme-toggle');
-        toggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('light-theme');
-            if(document.body.classList.contains('light-theme')){
-                toggleButton.textContent = 'Dark Mode';
-            } else {
-                toggleButton.textContent = 'Light Mode';
-            }
-        });
-    </script>
+<footer>Karya bersama Count & Cj | 2025</footer>
+
+<script>
+// Toggle tema
+const toggleButton = document.getElementById('theme-toggle');
+toggleButton.addEventListener('click', ()=>{
+    document.body.classList.toggle('light-theme');
+    toggleButton.textContent = document.body.classList.contains('light-theme')?'Dark Mode':'Light Mode';
+});
+
+// Pop-up
+function showPopup(message){
+    const popup=document.getElementById('popup');
+    popup.querySelector('p').textContent=message;
+    popup.style.display='block';
+}
+function closePopup(){
+    document.getElementById('popup').style.display='none';
+}
+</script>
 
 </body>
     </html>
