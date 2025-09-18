@@ -1,331 +1,112 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pemrograman Website Dasar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Ksatria Pixel</title>
+    <style>
+        /* Reset dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Font Google -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            line-height: 1.6;
+            padding: 20px;
+        }
 
-  <style>
-    :root {
-      /* Tema terang */
-      --bg-light: #f9f9f9;
-      --text-light: #222;
-      --accent-light: #0077ff;
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-      /* Tema gelap */
-      --bg-dark: #111;
-      --text-dark: #f5f5f5;
-      --accent-dark: #00ffcc;
-    }
+        h1 {
+            font-size: 2em;
+            text-shadow: 0 0 10px #00ffff;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px #ff00ff;
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        p {
+            font-size: 0.9em; /* font lebih kecil */
+            margin-bottom: 15px;
+            text-align: justify;
+        }
 
-    body {
-      background: var(--bg-dark);
-      color: var(--text-dark);
-      line-height: 1.8;
-      transition: all 0.5s ease;
-    }
+        .highlight {
+            color: #00ffff;
+            font-weight: bold;
+        }
 
-    body.light-mode {
-      background: var(--bg-light);
-      color: var(--text-light);
-    }
+        /* Animasi glow */
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #00ffff; }
+            50% { text-shadow: 0 0 20px #00ffff; }
+            100% { text-shadow: 0 0 5px #00ffff; }
+        }
 
-    /* Navigasi */
-    nav {
-      background: #000;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+        .glow {
+            animation: glow 2s infinite;
+        }
 
-    body.light-mode nav {
-      background: #fff;
-    }
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8em;
+            color: #888;
+        }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-
-    nav ul li a, nav ul li button {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-
-    body.light-mode nav ul li a, body.light-mode nav ul li button {
-      color: #222;
-    }
-
-    nav ul li a:hover, nav ul li button:hover {
-      color: var(--accent-dark);
-    }
-
-    body.light-mode nav ul li a:hover, body.light-mode nav ul li button:hover {
-      color: var(--accent-light);
-    }
-
-    /* Header */
-    header {
-      padding: 3rem 2rem;
-      text-align: center;
-      background: #222;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    body.light-mode header {
-      background: #eaeaea;
-    }
-
-    header h1 {
-      font-size: 2.6rem;
-      margin-bottom: 1rem;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
-
-    header img {
-      margin-top: 2rem;
-      max-width: 230px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    }
-
-    /* Section umum */
-    section {
-      padding: 3rem 1.5rem;
-      max-width: 900px;
-      margin: auto;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 1s ease;
-    }
-
-    section.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    section img {
-      max-width: 100%;
-      height: auto;
-      margin: 1.5rem 0;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    }
-
-    h2 {
-      margin-bottom: 1rem;
-      color: var(--accent-dark);
-      text-align: center;
-    }
-
-    body.light-mode h2 {
-      color: var(--accent-light);
-    }
-
-    p {
-      margin-bottom: 1.5rem;
-      font-size: 1.05rem;
-      text-align: justify;
-    }
-
-    /* Kata Pengantar */
-    #pengantar {
-      background: rgba(0,0,0,0.4);
-      padding: 2rem;
-      border-radius: 12px;
-    }
-
-    body.light-mode #pengantar {
-      background: rgba(200,200,200,0.2);
-    }
-
-    /* Tombol */
-    .btn {
-      display: inline-block;
-      background: #fff;
-      color: #111;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.3s;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      background: var(--accent-dark);
-      color: #111;
-      transform: scale(1.05);
-    }
-
-    body.light-mode .btn {
-      background: #222;
-      color: #fff;
-    }
-
-    body.light-mode .btn:hover {
-      background: var(--accent-light);
-      color: #fff;
-    }
-
-    footer {
-      margin: 3rem 0;
-      text-align: center;
-    }
-
-    /* Responsif */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      nav ul {
-        gap: 0.8rem;
-      }
-      p {
-        font-size: 1rem;
-      }
-    }
-
-    /* Animasi */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
+        /* Responsif untuk HP */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            p {
+                font-size: 0.85em;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigasi -->
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#pengantar">Pengantar</a></li>
-      <li><a href="#tentang">Tentang</a></li>
-      <li><a href="#langkah">Langkah</a></li>
-      <li><a href="#manfaat">Manfaat</a></li>
-      <li><a href="#kontak">Kontak</a></li>
-      <li><button onclick="toggleTheme()">Ubah Tema</button></li>
-    </ul>
-  </nav>
 
-  <!-- Header -->
-  <header id="home">
-    <h1>Pemrograman Website Dasar</h1>
-    <p>Mempelajari fondasi awal membuat website interaktif & modern</p>
-    <img src="https://source.unsplash.com/400x250/?coding,computer" alt="Coding Illustration">
-  </header>
+    <h1 class="glow">Selamat Datang di Dunia Ksatria Pixel</h1>
 
-  <!-- Kata Pengantar -->
-  <section id="pengantar">
-    <h2>Kata Pengantar</h2>
-    <p>
-      Selamat datang di materi <b>Pemrograman Website Dasar</b>.  
-      Website adalah jendela dunia digital yang kini sudah menjadi bagian penting dari kehidupan sehari-hari.  
-      Lewat pembelajaran ini, kita akan memahami konsep dasar yang dapat membuka jalan untuk membuat situs sederhana, 
-      namun bermanfaat dan interaktif.  
-    </p>
-    <p>
-      Harapan saya, materi ini bisa menjadi fondasi kuat bagi siapa saja yang ingin menapaki dunia pemrograman web. 
-      Semoga dengan memahami dasar-dasarnya, kamu bisa mengembangkan kreativitas dan ide-ide besar di masa depan.
-    </p>
-  </section>
+    <p>Website ini dibuat sebagai <span class="highlight">panduan lengkap</span> tentang karakter ksatria berbentuk pixel, cara membuat animasi sederhana, hingga meluncurkan website sendiri tanpa harus membayar hosting mahal.  
+    Di sini kamu akan menemukan pembahasan panjang layaknya majalah atau ebook, sehingga mudah dipahami bahkan untuk pemula.</p>
 
-  <!-- Section Tentang -->
-  <section id="tentang">
-    <h2>Apa itu Website?</h2>
-    <p>Website adalah kumpulan halaman yang saling terhubung dan dapat diakses melalui internet menggunakan browser. 
-       Website biasanya ditulis dengan <b>HTML</b> untuk struktur, <b>CSS</b> untuk tampilan, dan <b>JavaScript</b> untuk interaktivitas.</p>
-    <img src="https://source.unsplash.com/800x400/?website,design" alt="Website Design">
-    <p>Contoh jenis website: blog, toko online, portofolio, media sosial, hingga aplikasi berbasis web.</p>
-  </section>
+    <h2>Pembahasan Lengkap</h2>
+    <p>Animasi karakter pixel adalah salah satu cara terbaik untuk memahami dasar pemrograman grafis di web. Kamu bisa mulai dengan gambar sederhana (spritesheet) dan mengatur frame animasi menggunakan CSS atau JavaScript.  
+    Pembahasan ini mencakup berbagai topik seperti idle animation, attack, jump, dan efek visual lain yang membuat karakter terlihat hidup.</p>
 
-  <!-- Section Langkah -->
-  <section id="langkah">
-    <h2>Langkah Membuat Website Dasar</h2>
-    <p>1. Buat file <code>index.html</code> sebagai halaman utama.<br>
-       2. Tambahkan CSS untuk mempercantik tampilan.<br>
-       3. Gunakan JavaScript untuk menambah interaksi dinamis.<br>
-       4. Simpan file di hosting gratis seperti <b>GitHub Pages</b>.<br>
-       5. Bagikan link websitemu agar bisa diakses orang lain.</p>
-    <img src="https://source.unsplash.com/800x400/?html,css" alt="HTML & CSS">
-  </section>
+    <p>Selain itu, desain website ini disesuaikan agar nyaman dibuka di layar HP. Font dibuat sedikit lebih kecil agar teks lebih mudah dibaca dan layout responsif mengikuti ukuran layar.  
+    Animasi glow pada judul memberikan sentuhan visual menarik tanpa membebani performa.</p>
 
-  <!-- Section Manfaat -->
-  <section id="manfaat">
-    <h2>Manfaat Belajar Website</h2>
-    <p>✔ Bisa membuat blog atau portofolio online.<br>
-       ✔ Membuka peluang kerja sebagai web developer.<br>
-       ✔ Memahami dasar teknologi internet.<br>
-       ✔ Bisa dipakai untuk bisnis online.<br>
-       ✔ Membantu membangun komunitas & project digital.</p>
-    <img src="https://source.unsplash.com/800x400/?technology,developer" alt="Web Developer">
-  </section>
+    <h2>Cara Meluncurkan Website ke Google</h2>
+    <p>Setelah membuat website, langkah selanjutnya adalah meluncurkannya agar bisa diakses melalui Google. Caranya bisa melalui <span class="highlight">GitHub Pages</span>, yaitu layanan gratis dari GitHub untuk hosting halaman statis.  
+    Cukup upload file HTML, CSS, dan gambar ke repository, lalu aktifkan GitHub Pages di menu pengaturan repository. Dalam beberapa menit, website sudah online dan bisa diakses melalui link khusus yang diberikan GitHub.</p>
 
-  <!-- Section Kontak -->
-  <section id="kontak">
-    <h2>Hubungi Saya</h2>
-    <p>Email: <a href="mailto:email@contoh.com" style="color: var(--accent-dark);">email@contoh.com</a></p>
-    <img src="https://source.unsplash.com/400x250/?email,contact" alt="Contact Illustration">
-  </section>
+    <h2>Tips dan Trik</h2>
+    <p>- Gunakan <span class="highlight">spritesheet</span> untuk animasi agar lebih efisien.  
+    - Selalu cek tampilan di HP sebelum publikasi.  
+    - Tambahkan elemen visual menarik seperti glow, shadow, dan warna kontras untuk memperkuat desain.</p>
 
-  <!-- Footer -->
-  <footer>
-    <button class="btn" onclick="showMessage()">Klik untuk Pesan</button>
-  </footer>
+    <footer>
+        Karya bersama Count & Cj | 2025
+    </footer>
 
-  <script>
-    // Toggle Tema
-    function toggleTheme() {
-      document.body.classList.toggle('light-mode');
-    }
-
-    // Pesan Pop-up
-    function showMessage() {
-      alert("Terima kasih sudah belajar pemrograman website dasar! 🚀");
-    }
-
-    // Animasi Scroll
-    const sections = document.querySelectorAll("section");
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        }
-      });
-    }, { threshold: 0.2 });
-
-    sections.forEach(section => {
-      observer.observe(section);
-    });
-  </script>
 </body>
-      </html>
-  
+</html>
