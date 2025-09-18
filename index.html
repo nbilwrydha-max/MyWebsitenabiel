@@ -3,136 +3,197 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pemrograman Website Dasar - Ebook</title>
+<title>Pemrograman Website Dasar</title>
 <style>
-* {margin:0;padding:0;box-sizing:border-box;}
-body {font-family: Arial, sans-serif; background-color:#1e1e1e; color:#f0f0f0; line-height:1.6; padding:20px; transition: background-color 0.3s ease, color 0.3s ease;}
-h1,h2{text-align:center;margin-bottom:20px;}
-h1{font-size:2em; text-shadow:0 0 10px #00ffff;}
-h2{font-size:1.5em;margin-top:30px;margin-bottom:15px;text-shadow:0 0 5px #ff00ff;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Arial,sans-serif;background-color:#1e1e1e;color:#f0f0f0;line-height:1.6;padding:20px;transition:background-color 0.3s ease,color 0.3s ease;}
+h1,h2,h3{text-align:center;margin-bottom:20px;}
+h1{font-size:2em;}
+h2{font-size:1.5em;margin-top:30px;margin-bottom:15px;}
+h3{font-size:1.2em;margin-top:20px;margin-bottom:10px;}
 p{font-size:0.95em;margin-bottom:15px;text-align:justify;}
 code{background:#333;color:#0f0;padding:2px 4px;border-radius:4px;}
 .highlight{color:#00ffff;font-weight:bold;}
-@keyframes glow{0%{text-shadow:0 0 5px #00ffff;}50%{text-shadow:0 0 20px #00ffff;}100%{text-shadow:0 0 5px #00ffff;}}
-.glow{animation:glow 2s infinite;}
 nav{text-align:center;margin-bottom:30px;}
 nav a{display:inline-block;margin:5px 10px;padding:10px 20px;background-color:#333;color:#fff;text-decoration:none;border-radius:10px;transition:all 0.3s ease;}
-nav a:hover{background-color:#00ffff;color:#000;box-shadow:0 0 10px #00ffff;transform:scale(1.1);}
+nav a:hover{background-color:#00ffff;color:#000;transform:scale(1.1);}
 #theme-toggle{position:fixed;top:20px;right:20px;padding:10px 15px;background-color:#00ffff;color:#000;border:none;border-radius:8px;cursor:pointer;transition:all 0.3s ease;}
-#theme-toggle:hover{box-shadow:0 0 10px #00ffff; transform:scale(1.1);}
+#theme-toggle:hover{transform:scale(1.1);}
 footer{text-align:center;margin-top:40px;font-size:0.8em;color:#888;}
 .popup{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background-color:#333;color:#fff;padding:20px;border-radius:12px;box-shadow:0 0 15px #00ffff;z-index:1000;max-width:80%;text-align:center;}
 .popup button{margin-top:15px;padding:8px 12px;border:none;border-radius:6px;cursor:pointer;background-color:#00ffff;color:#000;}
 .light-theme{background-color:#ffffff;color:#1e1e1e;}
-.light-theme h1{text-shadow:0 0 10px #0000ff;}
-.light-theme h2{text-shadow:0 0 5px #ff00ff;}
-.light-theme .highlight{color:#0000ff;}
 .light-theme nav a{background-color:#ddd;color:#000;}
-.light-theme nav a:hover{background-color:#00ffff;color:#000;box-shadow:0 0 10px #00ffff;}
+.light-theme nav a:hover{background-color:#00ffff;color:#000;}
 .light-theme #theme-toggle{background-color:#00ffff;color:#000;}
 .light-theme .popup{background-color:#ddd;color:#000;box-shadow:0 0 15px #0000ff;}
-@media(max-width:600px){h1{font-size:1.5em;}h2{font-size:1.2em;}p{font-size:0.85em;}nav a{padding:8px 15px;}}
+section{opacity:0;transform:translateY(20px);transition:opacity 0.8s ease, transform 0.8s ease;}
+section.visible{opacity:1;transform:translateY(0);}
+button{transition:all 0.3s ease;}
+button:hover{transform:scale(1.1);}
+@media(max-width:600px){h1{font-size:1.5em;}h2{font-size:1.2em;}h3{font-size:1em;}p{font-size:0.85em;}nav a{padding:8px 15px;}}
 </style>
 </head>
 <body>
 
 <button id="theme-toggle">Light Mode</button>
 
-<h1 class="glow">Pemrograman Website Dasar - Panduan Lengkap</h1>
+<h1>Pemrograman Website Dasar</h1>
 
 <nav>
-    <a href="#pengantar">Kata Pengantar</a>
-    <a href="#html">HTML</a>
-    <a href="#css">CSS</a>
-    <a href="#javascript">JavaScript</a>
+<a href="#pengantar">Kata Pengantar</a>
+<a href="#html">HTML</a>
+<a href="#css">CSS</a>
+<a href="#javascript">JavaScript</a>
 </nav>
 
 <!-- Kata Pengantar -->
 <section id="pengantar">
 <h2>Kata Pengantar</h2>
-<p>Selamat datang di panduan <strong>Pemrograman Website Dasar</strong>. Buku ini dibuat khusus bagi pemula yang ingin memahami cara membuat website dari awal.  
-Kamu akan belajar mulai dari struktur halaman, penataan visual, hingga membuat interaksi menggunakan JavaScript.</p>
-<p>Setiap section dirancang panjang dan detail agar seperti ebook atau majalah digital. Kamu bisa membaca di HP maupun PC, dan semua contoh bisa langsung dicoba sendiri.</p>
-<p>Gunakan tombol navigasi di atas untuk berpindah antar section, dan tombol <strong>Light / Dark Mode</strong> untuk menyesuaikan tampilan mata. Di setiap section ada tombol pop-up untuk tips tambahan agar belajar lebih efektif.</p>
-<button onclick="showPopup('Tip: Bacalah setiap paragraf dan praktikkan contoh kode agar pemahaman lebih dalam!')">Tampilkan Tip</button>
+<p>Selamat datang di panduan <strong>Pemrograman Website Dasar</strong>. Panduan ini dirancang agar pemula memahami pembuatan website dari awal melalui contoh nyata dan tips praktis.  
+Kamu akan belajar HTML, CSS, dan JavaScript step-by-step.</p>
+<p>Gunakan tombol navigasi untuk berpindah antar section. Setiap sub-section memiliki tombol pop-up untuk tips tambahan agar belajar lebih efektif.</p>
+<button onclick="showPopup('Tip: Bacalah tiap paragraf dan praktikkan contoh kode agar pemahaman maksimal!')">Tampilkan Tip</button>
 </section>
 
 <!-- HTML Section -->
 <section id="html">
-<h2>Pembahasan HTML</h2>
-<p>HTML (HyperText Markup Language) adalah bahasa markup yang digunakan untuk membangun struktur website.  
-Dengan HTML, kamu bisa membuat judul, paragraf, tautan, gambar, tabel, daftar, dan banyak elemen lain yang membentuk halaman web.</p>
-<p>Contoh dasar HTML:</p>
+<h2>HTML</h2>
+
+<h3>Struktur Dasar</h3>
+<p>HTML membentuk struktur halaman. Contoh dasar:</p>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;title&gt;Contoh HTML&lt;/title&gt;
+  &lt;title&gt;Contoh&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;h1&gt;Halo Dunia&lt;/h1&gt;
-  &lt;p&gt;Ini paragraf pertama&lt;/p&gt;
+  &lt;p&gt;Paragraf pertama&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>Tips penting: selalu menutup tag HTML dengan benar dan menulis DOCTYPE di awal agar browser menampilkan halaman dengan baik.</p>
-<button onclick="showPopup('Tip HTML: Gunakan komentar &lt;!-- komentar --&gt; untuk memberi catatan pada kode!')">Tampilkan Tip</button>
+<button onclick="showPopup('Tip HTML: Selalu tulis DOCTYPE di awal halaman!')">Tampilkan Tip</button>
+
+<h3>Teks & Gambar</h3>
+<p>Menambahkan teks, gambar, dan atribut alt:</p>
+<pre><code>&lt;p&gt;Ini paragraf contoh.&lt;/p&gt;
+&lt;img src='gambar.jpg' alt='Contoh Gambar' /&gt;
+</code></pre>
+<button onclick="showPopup('Tip HTML: Gunakan atribut alt pada gambar untuk aksesibilitas!')">Tampilkan Tip</button>
+
+<h3>Link & List</h3>
+<p>Membuat tautan dan daftar:</p>
+<pre><code>&lt;a href='https://example.com'&gt;Kunjungi Example&lt;/a&gt;
+&lt;ul&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<button onclick="showPopup('Tip HTML: Gunakan list untuk menampilkan informasi secara rapi!')">Tampilkan Tip</button>
 </section>
 
 <!-- CSS Section -->
 <section id="css">
-<h2>Pembahasan CSS</h2>
-<p>CSS (Cascading Style Sheets) digunakan untuk mempercantik tampilan website. Kamu dapat mengatur warna, font, layout, jarak antar elemen, dan membuat animasi sederhana.</p>
-<p>Contoh CSS dasar:</p>
-<pre><code>body {
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
-  color: #333;
-}
-h1 {
-  color: #00f;
-  text-align: center;
-}
-</code></pre>
-<p>Tips: Gunakan class dan ID untuk mengatur style elemen tertentu, dan manfaatkan Flexbox atau Grid untuk membuat layout responsif.</p>
-<button onclick="showPopup('Tip CSS: Selalu gunakan warna kontras agar teks terbaca jelas!')">Tampilkan Tip</button>
+<h2>CSS</h2>
+
+<h3>Warna & Font</h3>
+<p>CSS mempercantik tampilan:</p>
+<pre><code>body {background:#f0f0f0;color:#333;font-family:Arial;}
+h1 {color:#00f;text-align:center;}</code></pre>
+<button onclick="showPopup('Tip CSS: Pilih warna kontras agar teks terbaca!')">Tampilkan Tip</button>
+
+<h3>Layout & Flexbox</h3>
+<p>Mengatur layout:</p>
+<pre><code>.container {display:flex;justify-content:space-around;}</code></pre>
+<button onclick="showPopup('Tip CSS: Flexbox memudahkan layout responsif!')">Tampilkan Tip</button>
+
+<h3>Animasi & Hover</h3>
+<p>Efek hover pada tombol:</p>
+<pre><code>button:hover {background-color:#0ff;transform:scale(1.1);}</code></pre>
+<button onclick="showPopup('Tip CSS: Animasi hover membuat website lebih interaktif!')">Tampilkan Tip</button>
 </section>
 
 <!-- JavaScript Section -->
 <section id="javascript">
-<h2>Pembahasan JavaScript</h2>
-<p>JavaScript membuat website menjadi interaktif. Kamu dapat menangani klik tombol, validasi form, mengubah konten secara dinamis, dan membuat animasi.</p>
-<p>Contoh JavaScript sederhana:</p>
-<pre><code>&lt;button onclick="alert('Halo!')"&gt;Klik Aku&lt;/button&gt;
-</code></pre>
-<p>Tips: Mulailah dengan memahami DOM (Document Object Model), event, dan fungsi sebelum mempelajari framework seperti React atau Vue.</p>
-<button onclick="showPopup('Tip JS: Cobalah memodifikasi DOM untuk melihat perubahan langsung di halaman!')">Tampilkan Tip</button>
+<h2>JavaScript</h2>
+
+<h3>DOM & Event</h3>
+<p>Membuat interaksi tombol:</p>
+<pre><code>&lt;button id="btn"&gt;Klik Aku&lt;/button&gt;
+&lt;script&gt;
+document.getElementById('btn').addEventListener('click', function(){
+  alert('Halo Dunia!');
+});
+&lt;/script&gt;</code></pre>
+<button onclick="showPopup('Tip JS: Mulailah dengan memahami DOM dan event!')">Tampilkan Tip</button>
+
+<h3>Validasi Form</h3>
+<p>Contoh validasi sederhana:</p>
+<pre><code>&lt;form id="form"&gt;
+  &lt;input type="text" id="nama" placeholder="Nama"&gt;
+  &lt;button type="submit"&gt;Kirim&lt;/button&gt;
+&lt;/form&gt;
+&lt;script&gt;
+document.getElementById('form').addEventListener('submit', function(e){
+  e.preventDefault();
+  const nama = document.getElementById('nama').value;
+  if(nama==='') alert('Nama harus diisi!');
+  else alert('Halo, '+nama);
+});
+&lt;/script&gt;</code></pre>
+<button onclick="showPopup('Tip JS: Validasi membantu mencegah data kosong atau salah!')">Tampilkan Tip</button>
 </section>
 
-<!-- Pop-up -->
-<div id="popup" class="popup">
-<p></p>
-<button onclick="closePopup()">Tutup</button>
+<footer>Karya Count & Cj | 2025</footer>
+
+<!-- Tombol pop-up khusus di bawah -->
+<section id="custom-popup" style="text-align:center;margin-top:40px;">
+  <button onclick="showCustomPopup()">Pesan Khusus</button>
+</section>
+
+<div id="popup-custom" class="popup">
+  <p>Ini adalah pesan khusus untuk keperluanmu. Ganti teks ini sesuai kebutuhan.</p>
+  <button onclick="closeCustomPopup()">Tutup</button>
 </div>
 
-<footer>Karya bersama Count & Cj | 2025</footer>
-
+<!-- Script -->
 <script>
 // Toggle tema
-const toggleButton = document.getElementById('theme-toggle');
-toggleButton.addEventListener('click', ()=>{
-    document.body.classList.toggle('light-theme');
-    toggleButton.textContent = document.body.classList.contains('light-theme')?'Dark Mode':'Light Mode';
+const toggleButton=document.getElementById('theme-toggle');
+toggleButton.addEventListener('click',()=>{
+document.body.classList.toggle('light-theme');
+toggleButton.textContent=document.body.classList.contains('light-theme')?'Dark Mode':'Light Mode';
 });
 
-// Pop-up
+// Pop-up tips
 function showPopup(message){
-    const popup=document.getElementById('popup');
+  const popup=document.getElementById('popup');
+  if(!popup){
+    const div=document.createElement('div');
+    div.id='popup';
+    div.className='popup';
+    div.innerHTML=`<p>${message}</p><button onclick="closePopup()">Tutup</button>`;
+    document.body.appendChild(div);
+  } else {
     popup.querySelector('p').textContent=message;
     popup.style.display='block';
+  }
 }
-function closePopup(){
-    document.getElementById('popup').style.display='none';
-}
+function closePopup(){document.getElementById('popup').style.display='none';}
+
+// Pop-up khusus
+function showCustomPopup(){document.getElementById('popup-custom').style.display='block';}
+function closeCustomPopup(){document.getElementById('popup-custom').style.display='none';}
+
+// Animasi muncul section saat scroll
+const sections=document.querySelectorAll('section');
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){entry.target.classList.add('visible');}
+});
+},{threshold:0.2});
+sections.forEach(section=>observer.observe(section));
 </script>
 
 </body>
