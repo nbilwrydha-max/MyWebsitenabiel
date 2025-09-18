@@ -5,74 +5,167 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pemrograman Website Dasar</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
+    /* Reset style */
+    * {
       margin: 0;
       padding: 0;
-      background: #f4f4f9;
-      color: #333;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
-    header {
-      background: #4CAF50;
-      color: white;
-      padding: 20px;
+
+    html {
+      scroll-behavior: smooth; /* Efek scroll halus */
+    }
+
+    body {
+      background: #111;
+      color: #fff;
+      line-height: 1.6;
       text-align: center;
     }
-    main {
-      padding: 20px;
+
+    /* Navigasi */
+    nav {
+      background: #000;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00ffcc;
+    }
+
+    /* Header */
+    header {
+      padding: 2rem;
+      background: #222;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #f1f1f1;
+    }
+
+    section {
+      padding: 3rem 2rem;
       max-width: 800px;
       margin: auto;
+      animation: slideUp 1.5s ease-in-out;
     }
-    h1, h2 {
-      color: #4CAF50;
+
+    h2 {
+      margin-bottom: 1rem;
+      color: #00ffcc;
     }
+
+    p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Tombol */
+    .btn {
+      display: inline-block;
+      background: #fff;
+      color: #111;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #00ffcc;
+      color: #111;
+      transform: scale(1.1);
+    }
+
     footer {
-      background: #222;
-      color: #ddd;
-      text-align: center;
-      padding: 10px;
-      margin-top: 20px;
+      margin: 3rem 0;
+    }
+
+    /* Animasi */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <header>
+  <!-- Navigasi -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header id="home">
     <h1>Pemrograman Website Dasar</h1>
-    <p>Belajar langkah awal membuat website</p>
+    <p>Mempelajari langkah pertama membuat website</p>
   </header>
 
-  <main>
-    <h2>1. Apa itu Website?</h2>
-    <p>Website adalah sekumpulan halaman yang saling terhubung dan dapat diakses melalui internet menggunakan browser.</p>
+  <!-- Section Tentang -->
+  <section id="tentang">
+    <h2>Apa itu Website?</h2>
+    <p>Website adalah kumpulan halaman yang bisa diakses melalui internet dengan menggunakan browser. 
+       Website biasanya ditulis dengan bahasa HTML, CSS, dan JavaScript.</p>
 
-    <h2>2. Struktur Dasar HTML</h2>
-    <p>Setiap website biasanya dibuat menggunakan <strong>HTML</strong>, <strong>CSS</strong>, dan <strong>JavaScript</strong>. 
-    Berikut struktur HTML paling dasar:</p>
+    <h2>Langkah Membuat Website Dasar</h2>
+    <p>1. Buat file <code>index.html</code><br>
+       2. Tulis struktur dasar HTML<br>
+       3. Tambahkan CSS untuk mempercantik tampilan<br>
+       4. Gunakan JavaScript untuk interaksi dinamis<br>
+       5. Hostingkan website, misalnya di GitHub Pages</p>
+  </section>
 
-    <pre>
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Judul Website&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Halo, dunia!&lt;/h1&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-    </pre>
+  <!-- Section Kontak -->
+  <section id="kontak">
+    <h2>Kenapa Harus Belajar Website?</h2>
+    <p>Dengan memahami pemrograman website dasar, kamu bisa membangun portofolio online, blog pribadi,
+       atau bahkan mengembangkan aplikasi berbasis web.</p>
+    <p>Hubungi saya di: <a href="mailto:email@contoh.com" style="color:#00ffcc;">email@contoh.com</a></p>
+  </section>
 
-    <h2>3. CSS untuk Tampilan</h2>
-    <p>CSS digunakan untuk mengatur tampilan, seperti warna, font, dan layout.</p>
-
-    <h2>4. JavaScript untuk Interaksi</h2>
-    <p>JavaScript membuat website lebih interaktif, seperti tombol, animasi, dan validasi form.</p> 
-    
-  </main>
-
+  <!-- Footer -->
   <footer>
-    <p>Website belajar pemrograman dasar © 2025<p>
-    <p>By Nabil Wirayuda 🇮🇩</p>
+    <button class="btn" onclick="showMessage()">Klik untuk Pesan</button>
   </footer>
+
+  <script>
+    function showMessage() {
+      alert("Terima kasih sudah belajar pemrograman website dasar! 🚀");
+    }
+  </script>
 </body>
-</html>
+  </html>
+  
