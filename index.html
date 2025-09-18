@@ -12,7 +12,6 @@ h1{font-size:2.5em;}
 h2{font-size:2em;margin-top:30px;margin-bottom:15px;}
 h3{font-size:1.5em;margin-top:20px;margin-bottom:10px;}
 p{font-size:1.1em;margin-bottom:15px;text-align:justify;}
-code{background:#333;color:#0f0;padding:2px 4px;border-radius:4px;font-size:1em;}
 .highlight{color:#00ffff;font-weight:bold;}
 nav{text-align:center;margin-bottom:30px;}
 nav a{display:inline-block;margin:5px 10px;padding:10px 20px;background-color:#333;color:#fff;text-decoration:none;border-radius:10px;transition:all 0.3s;}
@@ -37,7 +36,6 @@ button:hover{transform:scale(1.1);}
     h3{font-size:1.2em;}
     p{font-size:1em;}
     nav a{padding:8px 15px;}
-    code{font-size:0.95em;}
 }
 </style>
 </head>
@@ -48,140 +46,95 @@ button:hover{transform:scale(1.1);}
 <h1>Pemrograman Website Dasar</h1>
 
 <nav>
-<a href="#pengantar">Kata Pengantar</a>
-<a href="#html">HTML</a>
-<a href="#css">CSS</a>
-<a href="#javascript">JavaScript</a>
+<a href="#definisi">Definisi Website</a>
+<a href="#jenis">Jenis Website</a>
+<a href="#komponen">Komponen Utama</a>
+<a href="#cara">Cara Kerja</a>
+<a href="#fungsi">Fungsi Website</a>
+<a href="#tips">Tips Membuat Website</a>
 </nav>
 
-<!-- Kata Pengantar -->
-<section id="pengantar">
-<h2>Kata Pengantar</h2>
-<p>Selamat datang di panduan <strong>Pemrograman Website Dasar</strong>. Panduan ini dirancang agar pemula memahami pembuatan website dari awal melalui contoh nyata dan tips praktis. Kamu akan belajar HTML, CSS, dan JavaScript step-by-step.</p>
-<p>Gunakan tombol navigasi untuk berpindah antar section. Setiap sub-section memiliki tombol pop-up tips agar belajar lebih efektif.</p>
-<button onclick="showPopup('Tip: Praktikkan setiap contoh kode agar pemahaman maksimal!')">Tampilkan Tip</button>
+<!-- Definisi -->
+<section id="definisi">
+<h2>Definisi Website</h2>
+<p>Website adalah kumpulan halaman yang saling terhubung dan dapat diakses melalui internet menggunakan browser. Setiap website memiliki alamat unik yang disebut <strong>domain</strong>, dan file-file website disimpan di <strong>server</strong>. Website bisa berisi teks, gambar, video, atau aplikasi interaktif yang dapat digunakan oleh pengguna di seluruh dunia.</p>
+<p>Secara umum, website terbagi menjadi dua kategori: <strong>statis</strong> yang kontennya tetap, dan <strong>dinamis</strong> yang kontennya dapat berubah sesuai interaksi pengguna atau database.</p>
+<button onclick="showPopup('Tip: Pahami definisi website untuk membangun konsep yang kuat sebelum coding!')">Tampilkan Tip</button>
 </section>
 
-<!-- HTML Section -->
-<section id="html">
-<h2>HTML</h2>
-
-<h3>Struktur Dasar</h3>
-<p>HTML membentuk struktur halaman. Contoh dasar:</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;Contoh&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;Halo Dunia&lt;/h1&gt;
-  &lt;p&gt;Paragraf pertama&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<button onclick="showPopup('Tip HTML: Selalu tulis DOCTYPE di awal halaman!')">Tampilkan Tip</button>
-
-<h3>Heading & Paragraf</h3>
-<pre><code>&lt;h1&gt;Judul Utama&lt;/h1&gt;
-&lt;h2&gt;Sub Judul&lt;/h2&gt;
-&lt;p&gt;Ini paragraf teks.&lt;/p&gt;</code></pre>
-<button onclick="showPopup('Tip HTML: Gunakan heading sesuai hierarki untuk SEO dan struktur!')">Tampilkan Tip</button>
-
-<h3>Link, Daftar, dan Gambar</h3>
-<pre><code>&lt;a href='https://example.com'&gt;Kunjungi Example&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;/ul&gt;
-&lt;img src='gambar.jpg' alt='Contoh Gambar' width='200'/&gt;</code></pre>
-<button onclick="showPopup('Tip HTML: Gunakan alt pada gambar untuk aksesibilitas!')">Tampilkan Tip</button>
-
-<h3>Tabel</h3>
-<pre><code>&lt;table border="1"&gt;
-  &lt;tr&gt;&lt;th&gt;Nama&lt;/th&gt;&lt;th&gt;Umur&lt;/th&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;Budi&lt;/td&gt;&lt;td&gt;20&lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;</code></pre>
-<button onclick="showPopup('Tip HTML: Gunakan tabel untuk data terstruktur!')">Tampilkan Tip</button>
-
-<h3>Form & Input</h3>
-<pre><code>&lt;form id="form"&gt;
-  &lt;input type='text' id="nama" placeholder='Nama'&gt;
-  &lt;input type='submit' value='Kirim'&gt;
-&lt;/form&gt;</code></pre>
-<button onclick="showPopup('Tip HTML: Form digunakan untuk input user!')">Tampilkan Tip</button>
+<!-- Jenis -->
+<section id="jenis">
+<h2>Jenis Website</h2>
+<p>Ada berbagai jenis website, tergantung fungsi dan kontennya. Beberapa jenis yang umum ditemui antara lain:</p>
+<ul>
+<li><strong>Website Statis:</strong> Konten tetap dan jarang berubah, biasanya menggunakan HTML dan CSS sederhana.</li>
+<li><strong>Website Dinamis:</strong> Konten dapat berubah berdasarkan interaksi pengguna, memerlukan server dan database, misalnya menggunakan PHP, Python, atau Node.js.</li>
+<li><strong>Blog:</strong> Website yang fokus pada artikel atau postingan secara berkala.</li>
+<li><strong>E-commerce:</strong> Website untuk jual-beli produk atau jasa online.</li>
+<li><strong>Portal/Company Profile:</strong> Menyediakan informasi perusahaan atau organisasi secara online.</li>
+<li><strong>Aplikasi Web:</strong> Website yang fungsinya menyerupai aplikasi, misalnya Google Docs, Trello.</li>
+</ul>
+<button onclick="showPopup('Tip: Mengetahui jenis website membantu memilih teknologi yang tepat!')">Tampilkan Tip</button>
 </section>
 
-<!-- CSS Section -->
-<section id="css">
-<h2>CSS</h2>
-
-<h3>Warna, Font & Teks</h3>
-<pre><code>body {background:#f0f0f0;color:#333;font-family:Arial;}
-h1 {color:#00f;text-align:center;}
-p {color:#555;font-size:16px;}</code></pre>
-<button onclick="showPopup('Tip CSS: Pilih warna yang kontras agar teks terbaca!')">Tampilkan Tip</button>
-
-<h3>Margin, Padding & Border</h3>
-<pre><code>div {margin:10px;padding:15px;border:1px solid #000;}</code></pre>
-<button onclick="showPopup('Tip CSS: Box model penting untuk layout!')">Tampilkan Tip</button>
-
-<h3>Layout & Flexbox</h3>
-<pre><code>.container {display:flex;justify-content:space-around;}
-.item {width:100px;height:100px;background:#0ff;}</code></pre>
-<button onclick="showPopup('Tip CSS: Flexbox memudahkan membuat layout responsif!')">Tampilkan Tip</button>
-
-<h3>Animasi & Transition</h3>
-<pre><code>button:hover {background-color:#0ff;transform:scale(1.1);transition:all 0.3s;}</code></pre>
-<button onclick="showPopup('Tip CSS: Animasi membuat interaksi lebih menarik!')">Tampilkan Tip</button>
+<!-- Komponen -->
+<section id="komponen">
+<h2>Komponen Utama Website</h2>
+<p>Website memiliki beberapa komponen utama yang bekerja bersama:</p>
+<ul>
+<li><strong>Frontend:</strong> Bagian yang dilihat pengguna, biasanya dibuat dengan HTML, CSS, dan JavaScript.</li>
+<li><strong>Backend:</strong> Server, database, dan logika bisnis yang memproses permintaan pengguna.</li>
+<li><strong>Domain:</strong> Alamat unik website seperti www.contoh.com.</li>
+<li><strong>Hosting:</strong> Tempat menyimpan semua file website agar dapat diakses di internet.</li>
+</ul>
+<button onclick="showPopup('Tip: Pahami komponen utama agar website bisa berjalan dengan baik!')">Tampilkan Tip</button>
 </section>
 
-<!-- JavaScript Section -->
-<section id="javascript">
-<h2>JavaScript</h2>
+<!-- Cara Kerja -->
+<section id="cara">
+<h2>Cara Kerja Website</h2>
+<p>Ketika pengguna mengakses website dengan mengetik URL di browser, berikut proses yang terjadi:</p>
+<ol>
+<li>Browser mengirim <strong>request</strong> ke server sesuai alamat domain.</li>
+<li>Server menerima request dan memproses permintaan, termasuk mengambil data dari database jika perlu.</li>
+<li>Server mengirim <strong>response</strong> kembali ke browser, biasanya berupa file HTML, CSS, JS.</li>
+<li>Browser menampilkan halaman website sesuai data yang diterima.</li>
+</ol>
+<p>Proses ini menggunakan protokol <strong>HTTP</strong> atau <strong>HTTPS</strong> untuk komunikasi antara browser dan server.</p>
+<button onclick="showPopup('Tip: Memahami alur kerja website penting untuk troubleshooting dan optimasi!')">Tampilkan Tip</button>
+</section>
 
-<h3>Variabel & Tipe Data</h3>
-<pre><code>let nama = 'Budi';
-const umur = 20;
-var aktif = true;</code></pre>
-<button onclick="showPopup('Tip JS: Gunakan let/const sesuai kebutuhan variabel!')">Tampilkan Tip</button>
+<!-- Fungsi Website -->
+<section id="fungsi">
+<h2>Fungsi Website</h2>
+<p>Website memiliki berbagai fungsi, di antaranya:</p>
+<ul>
+<li>Menyediakan informasi atau berita.</li>
+<li>Media komunikasi, seperti forum atau social media.</li>
+<li>Transaksi online, misalnya e-commerce dan layanan perbankan.</li>
+<li>Hiburan, seperti streaming musik dan video.</li>
+<li>Edukasi dan pembelajaran online.</li>
+</ul>
+<button onclick="showPopup('Tip: Mengetahui fungsi website membantu merancang fitur yang sesuai!')">Tampilkan Tip</button>
+</section>
 
-<h3>Operator & Kondisi</h3>
-<pre><code>if(umur >= 18){
-  alert('Dewasa');
-}else{
-  alert('Belum dewasa');
-}</code></pre>
-<button onclick="showPopup('Tip JS: Operator dan kondisi mengontrol alur program!')">Tampilkan Tip</button>
-
-<h3>Looping</h3>
-<pre><code>for(let i=1;i<=5;i++){
-  console.log(i);
-}</code></pre>
-<button onclick="showPopup('Tip JS: Looping digunakan untuk mengulang kode!')">Tampilkan Tip</button>
-
-<h3>Fungsi & Event</h3>
-<pre><code>function sapa(nama){
-  alert('Halo '+nama);
-}
-document.getElementById('btn').addEventListener('click', function(){
-  sapa('Budi');
-});</code></pre>
-<button onclick="showPopup('Tip JS: Fungsi memudahkan penggunaan kode berulang!')">Tampilkan Tip</button>
-
-<h3>DOM & Manipulasi Konten</h3>
-<pre><code>document.getElementById('demo').innerHTML = 'Teks baru';</code></pre>
-<button onclick="showPopup('Tip JS: DOM memungkinkan interaksi dinamis dengan halaman!')">Tampilkan Tip</button>
-
-<h3>Validasi Form</h3>
-<pre><code>document.getElementById('form').addEventListener('submit', function(e){
-  e.preventDefault();
-  const nama = document.getElementById('nama').value;
-  if(nama==='') alert('Nama harus diisi!');
-  else alert('Halo, '+nama);
-});</code></pre>
-<button onclick="showPopup('Tip JS: Validasi mencegah input kosong atau salah!')">Tampilkan Tip</button>
+<!-- Tips -->
+<section id="tips">
+<h2>Tips Membuat Website</h2>
+<p>Beberapa tips dasar agar website dapat berjalan dengan baik dan mudah digunakan:</p>
+<ul>
+<li>Rencanakan tujuan dan target pengguna website sebelum membuat desain.</li>
+<li>Buat desain sederhana dan responsif agar bisa diakses dari perangkat apapun.</li>
+<li>Pilih teknologi yang sesuai dengan jenis website, misalnya HTML/CSS untuk statis, atau PHP/Node.js untuk dinamis.</li>
+<li>Optimalkan kecepatan dan keamanan website.</li>
+<li>Selalu uji dan perbaiki secara berkala berdasarkan feedback pengguna.</li>
+</ul>
+<button onclick="showPopup('Tip: Mulai dengan perencanaan matang agar pembuatan website lebih mudah!')">Tampilkan Tip</button>
 </section>
 
 <footer>Karya Count & Cj | 2025</footer>
 
-<!-- Tombol pop-up khusus di bawah -->
+<!-- Pop-up khusus -->
 <section id="custom-popup" style="text-align:center;margin-top:40px;">
   <button onclick="showCustomPopup()">Pesan Khusus</button>
 </section>
@@ -231,5 +184,5 @@ sections.forEach(section=>observer.observe(section));
 </script>
 
 </body>
-  </html>
-  
+    </html>
+    
