@@ -50,9 +50,9 @@ button:hover{transform:scale(1.1);}
 <!-- Kata Pengantar -->
 <section id="pengantar">
 <h2>Kata Pengantar</h2>
-<p>Selamat datang di panduan <strong>Pemrograman Website Dasar</strong>. Panduan ini dirancang agar pemula memahami pembuatan website dari awal. Kamu akan belajar HTML, CSS, dan JavaScript step-by-step dengan contoh kode nyata.</p>
-<p>Gunakan tombol navigasi di atas untuk berpindah antar section. Setiap sub-section memiliki tombol pop-up tips untuk membantu belajar lebih efektif.</p>
-<button onclick="showPopup('Tip: Praktikkan setiap contoh kode untuk pemahaman maksimal!')">Tampilkan Tip</button>
+<p>Selamat datang di panduan <strong>Pemrograman Website Dasar</strong>. Panduan ini dirancang agar pemula memahami pembuatan website dari awal melalui contoh nyata dan tips praktis. Kamu akan belajar HTML, CSS, dan JavaScript step-by-step.</p>
+<p>Gunakan tombol navigasi untuk berpindah antar section. Setiap sub-section memiliki tombol pop-up tips agar belajar lebih efektif.</p>
+<button onclick="showPopup('Tip: Praktikkan setiap contoh kode agar pemahaman maksimal!')">Tampilkan Tip</button>
 </section>
 
 <!-- HTML Section -->
@@ -82,14 +82,12 @@ button:hover{transform:scale(1.1);}
 <button onclick="showPopup('Tip HTML: Gunakan heading sesuai hierarki untuk SEO dan struktur!')">Tampilkan Tip</button>
 
 <h3>Link, Daftar, dan Gambar</h3>
-<p>Membuat tautan, daftar, dan menambahkan gambar:</p>
 <pre><code>&lt;a href='https://example.com'&gt;Kunjungi Example&lt;/a&gt;
 &lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;/ul&gt;
 &lt;img src='gambar.jpg' alt='Contoh Gambar' width='200'/&gt;</code></pre>
 <button onclick="showPopup('Tip HTML: Gunakan alt pada gambar untuk aksesibilitas!')">Tampilkan Tip</button>
 
 <h3>Tabel</h3>
-<p>Membuat tabel sederhana:</p>
 <pre><code>&lt;table border="1"&gt;
   &lt;tr&gt;&lt;th&gt;Nama&lt;/th&gt;&lt;th&gt;Umur&lt;/th&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;Budi&lt;/td&gt;&lt;td&gt;20&lt;/td&gt;&lt;/tr&gt;
@@ -97,9 +95,8 @@ button:hover{transform:scale(1.1);}
 <button onclick="showPopup('Tip HTML: Gunakan tabel untuk data terstruktur!')">Tampilkan Tip</button>
 
 <h3>Form & Input</h3>
-<p>Contoh form HTML:</p>
-<pre><code>&lt;form&gt;
-  &lt;input type='text' placeholder='Nama'&gt;
+<pre><code>&lt;form id="form"&gt;
+  &lt;input type='text' id="nama" placeholder='Nama'&gt;
   &lt;input type='submit' value='Kirim'&gt;
 &lt;/form&gt;</code></pre>
 <button onclick="showPopup('Tip HTML: Form digunakan untuk input user!')">Tampilkan Tip</button>
@@ -110,7 +107,6 @@ button:hover{transform:scale(1.1);}
 <h2>CSS</h2>
 
 <h3>Warna, Font & Teks</h3>
-<p>Mengatur tampilan teks:</p>
 <pre><code>body {background:#f0f0f0;color:#333;font-family:Arial;}
 h1 {color:#00f;text-align:center;}
 p {color:#555;font-size:16px;}</code></pre>
@@ -135,14 +131,13 @@ p {color:#555;font-size:16px;}</code></pre>
 <h2>JavaScript</h2>
 
 <h3>Variabel & Tipe Data</h3>
-<p>Mendeklarasikan variabel:</p>
 <pre><code>let nama = 'Budi';
 const umur = 20;
 var aktif = true;</code></pre>
 <button onclick="showPopup('Tip JS: Gunakan let/const sesuai kebutuhan variabel!')">Tampilkan Tip</button>
 
 <h3>Operator & Kondisi</h3>
-<pre><code>if(umur &gt;= 18){
+<pre><code>if(umur >= 18){
   alert('Dewasa');
 }else{
   alert('Belum dewasa');
@@ -150,7 +145,7 @@ var aktif = true;</code></pre>
 <button onclick="showPopup('Tip JS: Operator dan kondisi mengontrol alur program!')">Tampilkan Tip</button>
 
 <h3>Looping</h3>
-<pre><code>for(let i=1;i&lt;=5;i++){
+<pre><code>for(let i=1;i<=5;i++){
   console.log(i);
 }</code></pre>
 <button onclick="showPopup('Tip JS: Looping digunakan untuk mengulang kode!')">Tampilkan Tip</button>
@@ -173,6 +168,7 @@ document.getElementById('btn').addEventListener('click', function(){
   e.preventDefault();
   const nama = document.getElementById('nama').value;
   if(nama==='') alert('Nama harus diisi!');
+  else alert('Halo, '+nama);
 });</code></pre>
 <button onclick="showPopup('Tip JS: Validasi mencegah input kosong atau salah!')">Tampilkan Tip</button>
 </section>
@@ -185,5 +181,49 @@ document.getElementById('btn').addEventListener('click', function(){
 </section>
 
 <div id="popup-custom" class="popup">
-  <p>Ini adalah pesan khusus untuk keperluanmu
+  <p>Ini adalah pesan khusus untuk keperluanmu. Ganti teks ini sesuai kebutuhan.</p>
+  <button onclick="closeCustomPopup()">Tutup</button>
+</div>
+
+<!-- Script -->
+<script>
+// Toggle tema
+const toggleButton=document.getElementById('theme-toggle');
+toggleButton.addEventListener('click',()=>{
+document.body.classList.toggle('light-theme');
+toggleButton.textContent=document.body.classList.contains('light-theme')?'Dark Mode':'Light Mode';
+});
+
+// Pop-up tips
+function showPopup(message){
+  let popup=document.getElementById('popup');
+  if(!popup){
+    popup=document.createElement('div');
+    popup.id='popup';
+    popup.className='popup';
+    popup.innerHTML=`<p>${message}</p><button onclick="closePopup()">Tutup</button>`;
+    document.body.appendChild(popup);
+  } else {
+    popup.querySelector('p').textContent=message;
+    popup.style.display='block';
+  }
+}
+function closePopup(){document.getElementById('popup').style.display='none';}
+
+// Pop-up khusus
+function showCustomPopup(){document.getElementById('popup-custom').style.display='block';}
+function closeCustomPopup(){document.getElementById('popup-custom').style.display='none';}
+
+// Animasi muncul section saat scroll
+const sections=document.querySelectorAll('section');
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){entry.target.classList.add('visible');}
+});
+},{threshold:0.2});
+sections.forEach(section=>observer.observe(section));
+</script>
+
+</body>
+  </html>
   
